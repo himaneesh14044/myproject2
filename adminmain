@@ -1,0 +1,865 @@
+
+
+import java.io.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class AdminMain
+ */
+@WebServlet("/AdminMain")
+public class AdminMain extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AdminMain() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		try
+		{
+			File f = new File("C:/Users/Himaneesh Chhabra/workspace/Project2/src/filter.txt");
+			int cntfilter=0;
+			if(!f.exists())
+			{
+				f.createNewFile();
+			}
+			FileOutputStream fos = new FileOutputStream(f);
+			PrintStream ps = new PrintStream(fos);
+			String email=request.getParameter("email");
+			if(email==null||email.equals(""))
+			{
+				
+			}
+			else
+			{
+				ps.println("email:-"+email);
+				cntfilter++;
+			}
+			String name=request.getParameter("nam");
+			if(name==null||name.equals(""))
+			{
+				
+			}
+			else
+			{
+				cntfilter++;
+				ps.println("name:-"+name);
+			}
+			String en=request.getParameter("en");
+			if(en==null||en.equals(""))
+			{
+				
+			}
+			else
+			{
+				ps.println("enrollmentid:-"+en);
+				cntfilter++;
+			}
+			String category=request.getParameter("Category");
+			if(category!=null)
+			{	
+				cntfilter++;
+				ps.println("category:-"+category);
+			}
+			String gender=request.getParameter("radio1");
+			if(gender!=null)
+			{
+				cntfilter++;
+				ps.println("gender:-"+gender);	
+			}
+			String pd=request.getParameter("radio2");
+			if(pd!=null)
+			{
+				cntfilter++;
+				ps.println("pd:-"+pd);	
+			}
+			String dob=request.getParameter("radio3");
+			String date=request.getParameter("date");
+			if(dob!=null && date!=null)
+			{
+				if(dob.equals("on"))
+				{
+					cntfilter++;
+					ps.println("dob"+dob+":-"+date);
+				}
+				else if(dob.equals("before"))
+				{
+					cntfilter++;
+					ps.println("dob"+dob+":-"+date);
+				}
+				else if(dob.equals("after"))
+				{
+					cntfilter++;
+					ps.println("dob"+dob+":-"+date);
+				}
+			}
+			String phdstream=request.getParameter("phdstream");
+			if(phdstream!=null)
+			{
+				cntfilter++;
+				ps.println("phdstream:-"+phdstream);	
+			}
+			String degree=request.getParameter("degree");
+			if(degree!=null)
+			{	
+				cntfilter++;
+				ps.println("degree:-"+degree);
+			}
+			String postdegree=request.getParameter("postdegree");
+			if(postdegree!=null)
+			{
+				cntfilter++;
+				ps.println("postdegree:-"+postdegree);	
+			}
+			String xboard=request.getParameter("xboard");
+			if(xboard!=null)
+			{
+				cntfilter++;
+				ps.println("xboard:-"+xboard);		
+			}
+			String xiiboard=request.getParameter("xiiboard");
+			if(xiiboard!=null)
+			{
+				cntfilter++;
+				ps.println("xiiboard:-"+xiiboard);	
+			}
+			String depdesc=request.getParameter("depdesc");
+			if(depdesc==null||depdesc.equals(""))
+			{	
+					
+			}
+			else
+			{
+				cntfilter++;
+				ps.println("depdesc:-"+depdesc);
+			}
+			String postdepdesc=request.getParameter("postdepdesc");
+			if(postdepdesc==null||postdepdesc.equals(""))
+			{
+				
+			}
+			else
+			{
+				cntfilter++;
+				ps.println("postdepdesc:-"+postdepdesc);
+			}
+			String univ=request.getParameter("univ");
+			if(univ==null||univ.equals(""))
+			{
+				
+			}
+			else
+			{
+				cntfilter++;
+				ps.println("univ:-"+univ);
+			}
+			String postuniv=request.getParameter("postuniv");
+			if(postuniv==null||postuniv.equals(""))
+			{
+				
+			}
+			else
+			{
+				cntfilter++;
+				ps.println("postuniv:-"+postuniv);
+			}
+			String state=request.getParameter("state");
+			if(state==null||state.equals(""))
+			{
+				
+			}
+			else
+			{
+				cntfilter++;
+				ps.println("state:-"+state);
+			}
+			String poststate=request.getParameter("poststate");
+			if(poststate==null||poststate.equals(""))
+			{
+				
+			}
+			else
+			{
+				cntfilter++;
+				ps.println("state:-"+state);
+			}
+			String cb1=request.getParameter("cb1");
+			String xmarks=request.getParameter("xmarks");
+			System.out.println(cb1);
+			System.out.println(xmarks);
+			if(cb1!=null&&xmarks!=null)
+			{
+				cntfilter++;
+				ps.println("xmarks"+cb1+":-"+xmarks);
+			}
+			String cb2=request.getParameter("cb2");
+			String xiimarks=request.getParameter("xiimarks");
+			if(cb2!=null&&xiimarks!=null)
+			{
+				cntfilter++;
+				ps.println("xiimarks"+cb2+":-"+xiimarks);
+			}
+			String cb3=request.getParameter("cb3");
+			String marks=request.getParameter("marks");
+			if(cb3!=null&&marks!=null)
+			{
+				cntfilter++;
+				ps.println("graduationmarks"+cb3+":-"+marks);
+			}
+			String cb4=request.getParameter("cb4");
+			String postmarks=request.getParameter("postmarks");
+			if(cb4!=null&&marks!=null)
+			{
+				cntfilter++;
+				ps.println("postgraduationnmarks"+cb4+":-"+postmarks);
+			}
+			String cb5=request.getParameter("cb5");
+			String gatescore=request.getParameter("gatescore");
+			if(cb5!=null&&gatescore!=null)
+			{
+				cntfilter++;
+				ps.println("gatescore"+cb5+":-"+gatescore);
+			}
+			String datefrom=request.getParameter("datefrom");
+			if(datefrom==null||datefrom.equals(""))
+			{
+				
+			}
+			else
+			{
+				cntfilter++;
+				ps.println("datefrom:-"+datefrom);
+			}
+			String dateupto=request.getParameter("dateupto");
+			if(dateupto==null||dateupto.equals(""))
+			{
+		
+			}
+			else
+			{
+				cntfilter++;
+				ps.println("dateupto:-"+dateupto);
+			}
+			ps.close();
+			fos.close();
+			FileInputStream fi = new FileInputStream("C:/Users/Himaneesh Chhabra/workspace/Project2/src/count.txt");
+			BufferedReader br2 = new BufferedReader(new InputStreamReader(fi));
+			int cnt=0;
+			String li;
+			while((li=br2.readLine())!=null)
+			{
+				cnt=Integer.parseInt(li);
+			}
+			File f2 = new File("C:/Users/Himaneesh Chhabra/workspace/Project2/src/table.txt");
+			
+			if(!f2.exists())
+			{
+				f2.createNewFile();
+			}
+			FileOutputStream fos2 = new FileOutputStream(f2);
+			PrintStream ps2=new PrintStream(fos2);
+			for(int i=1;i<=cnt-1;i++)
+			{
+				int flag=0;
+				
+				String lie;
+				FileInputStream fis = new FileInputStream("C:/Users/Himaneesh Chhabra/workspace/Project2/src/filter.txt");
+				BufferedReader br4 = new BufferedReader(new InputStreamReader(fis));
+				lie=br4.readLine();
+				String line;
+				int eid=i;
+				String myname=null;
+			
+				while(lie!=null)
+				{
+					String st1[]=lie.split(":-");
+					//System.out.println(lie);
+					//System.out.println(st1[0]+":"+st1[1]);
+					FileInputStream fs = new FileInputStream("C:/Users/Himaneesh Chhabra/workspace/Project2/src/"+i+".txt");
+					BufferedReader buff = new BufferedReader(new InputStreamReader(fs));
+					while((line=buff.readLine())!=null)
+					{
+						String st2[]=line.split(":-");			
+						//System.out.println(st2[0]+":"+st2[1]);
+						if(st2[0].equals("name"))
+						{
+							myname=st2[1];
+						}
+						
+						if(st1[0].equals("depdesc")&&st2[0].equals("depdesc"))
+						{
+							if(st1[1].equals("All"))
+							{
+								System.out.println("Yesdepdesc");
+								flag++;
+							}
+							else if(st1[1].equals("CSE")&&st2[1].equals("Computer Science"))
+							{
+								System.out.println("csedepsesc");
+								flag++;
+							}
+							else if(st1[1].equals("ECE")&&st2[1].equals("Electronics and Communication"))
+							{
+								System.out.println("ecedepdesc");
+								flag++;
+							}
+						}
+						if(st1[0].equals("postdepdesc")&&st2[0].equals("postdepdesc"))
+						{
+							if(st1[1].equals("All"))
+							{
+								System.out.println("Yes");
+								flag++;
+							}
+							else if(st1[1].equals("CSE")&&st2[1].equals("Computer Science"))
+							{
+								flag++;
+							}
+							else if(st1[1].equals("ECE")&&st2[1].equals("Electronics and Communication"))
+							{
+								flag++;
+							}
+						}
+						if(st1[0].equals("xmarksgreater")&&st2[0].equals("xmarks"))
+						{
+							int x=Integer.parseInt(st2[1]);
+							int y=Integer.parseInt(st1[1]);
+							if(x>y)
+							{
+								System.out.println("xgreater");
+								flag++;
+							}
+						}
+						if(st1[0].equals("xmarksless")&&st2[0].equals("xmarks"))
+						{
+							int x=Integer.parseInt(st2[1]);
+							int y=Integer.parseInt(st1[1]);
+							if(x<y)
+							{
+								System.out.println("xlesser");
+								flag++;
+							}
+						}
+						if(st1[0].equals("xmarksequal")&&st2[0].equals("xmarks"))
+						{
+							int x=Integer.parseInt(st2[1]);
+							int y=Integer.parseInt(st1[1]);
+							if(x==y)
+							{
+								System.out.println("xequal");
+								flag++;
+							}
+						}
+						if(st1[0].equals("xiimarksgreater")&&st2[0].equals("xiimarks"))
+						{
+							int x=Integer.parseInt(st2[1]);
+							int y=Integer.parseInt(st1[1]);
+							if(x>y)
+							{
+								System.out.println("xiimarksgreater");
+								flag++;
+							}
+						}
+						if(st1[0].equals("xiimarksless")&&st2[0].equals("xiimarks"))
+						{
+							int x=Integer.parseInt(st2[1]);
+							int y=Integer.parseInt(st1[1]);
+							if(x<y)
+							{
+								System.out.println("ciimarksless");
+								flag++;
+							}
+						}
+						if(st1[0].equals("xiimarksequal")&&st2[0].equals("xiimarks"))
+						{
+							int x=Integer.parseInt(st2[1]);
+							int y=Integer.parseInt(st1[1]);
+							if(x==y)
+							{
+								System.out.println("xiimarksequal");
+								flag++;
+							}
+						}
+						if(st1[0].equals("graduationmarksgreater")&&st2[0].equals("cgpa"))
+						{
+							String temp[]=st2[1].split(":");
+							int res=0;
+							if(temp[0].equals("Marks"))
+							{
+								int x=Integer.parseInt(temp[1]);
+								int y=Integer.parseInt(st1[1]);
+								if(x>y)
+								{
+									System.out.println("greater");
+									flag++;
+								}
+							}
+							else if((temp[0]).equals("CGPA"))
+							{
+								int x=(int) Float.parseFloat(temp[1]);
+								int y=Integer.parseInt(st1[1]);
+								x=x*10;
+								if(x>y)
+								{
+									System.out.println("greater");
+									flag++;
+								}
+							}
+							
+						}
+						if(st1[0].equals("graduationmarkslesser")&&st2[0].equals("cgpa"))
+						{
+							String temp[]=st2[1].split(":");
+							int res=0;
+							if(temp[0].equals("Marks"))
+							{
+								int x=Integer.parseInt(temp[1]);
+								int y=Integer.parseInt(st1[1]);
+								if(x<y)
+								{
+									System.out.println("lesser");
+									flag++;
+								}
+							}
+							else if((temp[0]).equals("CGPA"))
+							{
+								int x=(int) Float.parseFloat(temp[1]);
+								int y=Integer.parseInt(st1[1]);
+								x=x*10;
+								if(x<y)
+								{
+									System.out.println("lesser");
+									flag++;
+								}
+							}
+							
+						}
+						if(st1[0].equals("graduationmarksequal")&&st2[0].equals("cgpa"))
+						{
+							String temp[]=st2[1].split(":");
+							int res=0;
+							if(temp[0].equals("Marks"))
+							{
+								int x=Integer.parseInt(temp[1]);
+								int y=Integer.parseInt(st2[1]);
+								if(x==y)
+								{
+									System.out.println("equal");
+									flag++;
+								}
+							}
+							else if((temp[0]).equals("CGPA"))
+							{
+								int x=(int) Float.parseFloat(temp[1]);
+								int y=Integer.parseInt(st1[1]);
+								x=x*10;
+								if(x==y)
+								{
+									System.out.println("equal");
+									flag++;
+								}
+							}
+							
+						}
+						if(st1[0].equals("postmarksgreater")&&st2[0].equals("postmarks"))
+						{
+							String temp[]=st2[1].split(":");
+							int res=0;
+							if(temp[0].equals("Marks"))
+							{
+								int x=Integer.parseInt(temp[1]);
+								int y=Integer.parseInt(st1[1]);
+								if(x>y)
+								{
+									System.out.println("postgreat");
+									flag++;
+								}
+							}
+							else if((temp[0]).equals("CGPA"))
+							{
+								int x=(int) Float.parseFloat(temp[1]);
+								int y=Integer.parseInt(st1[1]);
+								x=x*10;
+								if(x>y)
+								{
+									System.out.println("postgreat");
+									flag++;
+								}
+							}
+							
+						}
+						if(st1[0].equals("postmarksless")&&st2[0].equals("postmarks"))
+						{
+							String temp[]=st2[1].split(":");
+							int res=0;
+							if(temp[0].equals("Marks"))
+							{
+								int x=Integer.parseInt(temp[1]);
+								int y=Integer.parseInt(st1[1]);
+								if(x<y)
+								{
+									System.out.println("postless");
+									flag++;
+								}
+							}
+							else if((temp[0]).equals("CGPA"))
+							{
+								int x=(int) Float.parseFloat(temp[1]);
+								int y=Integer.parseInt(st1[1]);
+								x=x*10;
+								if(x<y)
+								{
+									System.out.println("postless");
+									flag++;
+								}
+							}
+							
+						}
+						if(st1[0].equals("postmarksequal")&&st2[0].equals("postmarks"))
+						{
+							String temp[]=st2[1].split(":");
+							int res=0;
+							if(temp[0].equals("Marks"))
+							{
+								int x=Integer.parseInt(temp[1]);
+								int y=Integer.parseInt(st1[1]);
+								if(x==y)
+								{
+									System.out.println("postequal");
+									flag++;
+								}
+							}
+							else if((temp[0]).equals("CGPA"))
+							{
+								int x=(int) Float.parseFloat(temp[1]);
+								int y=Integer.parseInt(st1[1]);
+								x=x*10;
+								if(x==y)
+								{
+									System.out.println("postequal");
+									flag++;
+								}
+							}	
+						}
+						if(st1[0].equals("category")&&st2[0].equals("category"))
+						{
+							if(st1[1].equals("All"))
+							{
+								System.out.println("Yescategory");
+								flag++;
+							}
+							else if(st1[1].equals("General")&&st2[1].equals("General"))
+							{
+								System.out.println("general");
+								flag++;
+							}
+							else if(st1[1].equals("SC")&&st2[1].equals("SC"))
+							{
+								System.out.println("sc");
+								flag++;
+							}
+							else if(st1[1].equals("ST")&&st2[1].equals("ST"))
+							{
+								System.out.println("st");
+								flag++;
+							}
+							else if(st1[1].equals("OBC")&&st2[1].equals("OBC"))
+							{
+								System.out.println("obc");
+								flag++;
+							}
+						}
+						if(st1[0].equals("gender")&&st2[0].equals("gender"))
+						{
+							if(st1[1].equals("All"))
+							{
+								flag++;
+							}
+							else if(st1[1].equals("male")&&st2[1].equals("Male"))
+							{
+								System.out.println("male");
+								flag++;
+							}
+							else if(st1[1].equals("female")&&st2[1].equals("Female"))
+							{
+								System.out.println("female");
+								flag++;
+							}
+						}
+						if(st1[0].equals("pd")&&st2[0].equals("physicallydisabled"))
+						{
+							if(st1[1].equals("yes")&&st2[1].equals("Yes"))
+							{
+								System.out.println("yespd");
+								flag++;
+							}
+							if(st1[1].equals("no")&&st2[1].equals("No"))
+							{
+								System.out.println("nopd");
+								flag++;
+							}
+						}
+						if(st1[0].equals("univ")&&st2[0].equals("university"))
+						{
+							if(st1[1].equals(st2[1]))
+							{
+								flag++;
+							}
+						}
+						if(st1[0].equals("postuniv")&&st2[0].equals("postcollege"))
+						{
+							if(st1[1].equals(st2[1]))
+							{
+								flag++;
+							}
+						}
+						if(st1[0].equals("degree")&&st2[0].equals("degree"))
+						{
+							if(st1[1].equals("All"))
+							{
+								System.out.println("Yesdegree");
+								flag++;
+							}
+							if(st1[1].equals("B.Tech")&&st2[1].equals("B.Tech"))
+							{
+								System.out.println("Yesdegreebtech");
+								flag++;
+							}
+							if(st1[1].equals("B.E")&&st2[1].equals("B.E"))
+							{
+								System.out.println("Yesdegreebe");
+								flag++;
+							}
+							if(st1[1].equals("B.Sc")&&st2[1].equals("B.Sc"))
+							{
+								System.out.println("Yesdeggreebsc");
+								flag++;
+							}
+						}
+						if(st1[0].equals("postdegree")&&st2[0].equals("postdegree"))
+						{
+							if(st1[1].equals("All"))
+							{
+								System.out.println("Yespostdegree");
+								flag++;
+							}
+							if(st1[1].equals("M.Tech")&&st2[1].equals("M.Tech"))
+							{
+								System.out.println("Yespostdegreemtech");
+								flag++;
+							}
+							if(st1[1].equals("M.S")&&st2[1].equals("M.S"))
+							{
+								System.out.println("Yespostdegreems");
+								flag++;
+							}
+							if(st1[1].equals("M.Sc")&&st2[1].equals("M.Sc"))
+							{
+								System.out.println("Yespostdegreemsc");
+								flag++;
+							}
+						}
+						if(st1[0].equals("phdstream")&&st2[0].equals("Phd Stream"))
+						{
+							if(st1[1].equals("All"))
+							{
+								System.out.println("Yesphdstream");
+								flag++;
+							}
+							else if(st1[1].equals("Computer Science")&&st2[1].equals("Computer Science"))
+							{
+								System.out.println("YesxiiCSphd");
+								flag++;
+							}
+							else if(st1[1].equals("Electronics and Communication")&&st2[1].equals("Electronics and Communication"))
+							{
+								System.out.println("YesxiiECEphd");
+								flag++;
+							}
+							else if(st1[1].equals("Computational Biology")&&st2[1].equals("Computational Biology"))
+							{
+								System.out.println("YesxiiCBphd");
+								flag++;
+							}
+						}
+						if(st1[0].equals("xboard")&&st2[0].equals("xboard"))
+						{
+							if(st1[1].equals("All"))
+							{
+								System.out.println("Yesxboard");
+								flag++;
+							}
+							else if(st1[1].equals("CBSE")&&st2[1].equals("CBSE"))
+							{
+								System.out.println("YesxiiCBSE");
+								flag++;
+							}
+							else if(st1[1].equals("ICSE")&&st2[1].equals("ICSE"))
+							{
+								System.out.println("YesxiiICSE");
+								flag++;
+							}
+						}
+						if(st1[0].equals("xiiboard")&&st2[0].equals("xiiboard"))
+						{
+							if(st1[1].equals("All"))
+							{
+								System.out.println("Yesxiiboard");
+								flag++;
+							}
+							else if(st1[1].equals("CBSE")&&st2[1].equals("CBSE"))
+							{
+								System.out.println("YesxiiCBSE");
+								flag++;
+							}
+							else if(st1[1].equals("ICSE")&&st2[1].equals("ICSE"))
+							{
+								System.out.println("YesxiiICSE");
+								flag++;
+							}
+						}
+						if(st1[0].equals("dobon")&&(st2[0].equals("dob")))
+						{
+							String temp1[]=st1[1].split("-");
+							String temp2[]=st2[1].split("-");
+							if((temp1[0]==temp2[0])&&(temp1[1]==temp2[1])&&(temp1[2]==temp2[2]))
+							{
+								flag++;
+							}
+						}
+						if(st1[0].equals("dobafter")&&(st2[0].equals("dob")))
+						{
+							String temp1[]=st1[1].split("-");
+							String temp2[]=st2[1].split("-");
+							int a=Integer.parseInt(temp1[0]);
+							int b=Integer.parseInt(temp1[1]);
+							int c=Integer.parseInt(temp1[2]);
+							int d=Integer.parseInt(temp2[0]);
+							int e=Integer.parseInt(temp2[1]);
+							int f1=Integer.parseInt(temp2[2]);
+							if(f1>c)
+							{
+								flag++;
+							}
+							else if(f1==c)
+							{
+								if(e>b)
+								{
+									flag++;
+								}
+								else if(e==b)
+								{
+									if(d>a)
+									{
+										flag++;
+									}
+								}
+							}
+						}
+						if(st1[0].equals("dobbefore")&&(st2[0].equals("dob")))
+						{
+							String temp1[]=st1[1].split("-");
+							String temp2[]=st2[1].split("-");
+							int a=Integer.parseInt(temp1[0]);
+							int b=Integer.parseInt(temp1[1]);
+							int c=Integer.parseInt(temp1[2]);
+							int d=Integer.parseInt(temp2[0]);
+							int e=Integer.parseInt(temp2[1]);
+							int f1=Integer.parseInt(temp2[2]);
+							if(f1<c)
+							{
+								flag++;
+							}
+							else if(f1==c)
+							{
+								if(e<b)
+								{
+									flag++;
+								}
+								else if(e==b)
+								{
+									if(d<a)
+									{
+										flag++;
+									}
+								}
+							}
+						}
+					}
+					lie = br4.readLine();
+				}
+				
+				if(flag==cntfilter)
+				{
+					ps2.println(myname+":"+eid);
+				}
+				System.out.println(flag);
+			}
+			FileInputStream fis = new FileInputStream("C:/Users/Himaneesh Chhabra/workspace/Project2/src/table.txt");
+			BufferedReader br = new BufferedReader(new InputStreamReader(fis));
+			response.setContentType("text/html");  
+	        PrintWriter out=response.getWriter();  
+	        out.println("<HTML>");
+            // Start on the body
+            out.println("<BODY>");
+            out.println("<CENTER>");
+            out.println("<script type=\"text/javascript\">function openfile(thefile) {location.href = \"C:/Users/Himaneesh Chhabra/workspace/Project2/src/\" + thefile + \".txt\"}");
+            out.println("</script>");
+            out.println("<table BORDER=1 CELLPADDING=0 CELLSPACING=0 WIDTH=50% >");
+			out.println("<th>Name</th>");
+			out.println("<th>Enrollment no</th>");
+			out.println("<th>Link</th>");
+			
+			String line;
+			int temp;
+			while((line=br.readLine())!=null)
+			{
+				String st[]=line.split(":");
+				out.println("<tr>");
+				out.println("<td>"+st[0]+"</td>");
+				out.println("<td>"+st[1]+"</td>");
+				temp=Integer.parseInt(st[1]);
+				out.println("<td><input id=\"Button\" type=\"button\" value=\"ClickHere\"  onclick=\"openfile('"+temp+"')\"/>");
+				out.println("</tr>");
+				temp++;
+			}
+			
+			out.println("</table>");
+			out.println("<input id=\"Button\" type=\"button\" value=\"CVResume\"  onclick=\"openfile('cvresume')\"/>");
+			out.println("<input id=\"Button\" type=\"button\" value=\"StatofPurp\"  onclick=\"openfile('statofpurp')\"/>");
+			out.println("</CENTER>");
+			out.println("</BODY>");
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}	
+		
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//doGet(request, response);
+		//System.out.println("Hello");
+	}
+
+}
